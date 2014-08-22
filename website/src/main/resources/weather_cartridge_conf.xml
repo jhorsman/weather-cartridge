@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CartridgeDefinition Version="6.0" Uri="taf:cartridge:weather" Description="Example weather cartridge">
+    <ClaimDefinitions>
+        <ClaimDefinition Uri="taf:claim:ambientdata:weather:type" Scope="SESSION"
+                         Description="Random weather type, i.e. Sunny" />
+        <ClaimDefinition Uri="taf:claim:ambientdata:weather:temperatureInCelsius" Scope="SESSION"
+                         Description="Random temperature, in degrees Celsius" />
+        <ClaimDefinition Uri="taf:claim:ambientdata:weather:temperatureInFahrenheit" Scope="SESSION"
+                         Description="Random temperature, in degrees Fahrenheit" />
+    </ClaimDefinitions>
+    <ClaimProcessorDefinitions>
+        <ClaimProcessorDefinition Uri="taf:claimprocessor:weather"
+                                  ImplementationClass="example.tridion.adfsandbox.WeatherCartridge.WeatherClaimProcessor"
+                                  Description="Example hello claims">
+            <RequestStart>
+                <InputClaims>
+                </InputClaims>
+                <OutputClaims>
+                    <ClaimDefinition Uri="taf:claim:ambientdata:weather:type" />
+                    <ClaimDefinition Uri="taf:claim:ambientdata:weather:temperatureInCelsius" />
+                    <ClaimDefinition Uri="taf:claim:ambientdata:weather:temperatureInFahrenheit" />
+                </OutputClaims>
+            </RequestStart>
+        </ClaimProcessorDefinition>
+    </ClaimProcessorDefinitions>
+</CartridgeDefinition>

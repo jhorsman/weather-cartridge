@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <!-- Model Information -->
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- Artifact Information -->
+	<groupId>example.tridion.adfsandbox</groupId>
+	<artifactId>deployment-package</artifactId>
+	<version>1.0.0</version>
+	<packaging>pom</packaging>
+	<name>ADF-sandbox</name>
+
+    <!-- Properties -->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <projectGroupId>example.tridion.adf-sandbox</projectGroupId>
+
+        <!-- Tridion 2013 SP1 = TCD-build-version 7.1.0-STABLE.165 -->
+        <dependencies.tridion-version>7.1.0-STABLE.165</dependencies.tridion-version>
+
+        <jetty.version>9.1.4.v20140401</jetty.version>
+    </properties>
+
+	<!-- Modules -->
+	<modules>
+        <module>tridion-2013sp1-dependencies</module>
+        <module>website</module>
+	</modules>
+  
+	<!-- Dependencies -->
+    <!-- Build -->
+</project>

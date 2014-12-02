@@ -92,5 +92,16 @@
                 </dependencies>
             </plugin>
         </plugins>
+        <!-- including JAVA scources in JAR -->
+        <resources>
+            <resource>
+				<!-- source directory -->
+                <directory>src/main/java</directory>
+            </resource>
+            <resource>
+				<!-- resources directory which would have been added to the build by default -->
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
     </build>
 </project>

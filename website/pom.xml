@@ -92,7 +92,9 @@
                 </dependencies>
             </plugin>
         </plugins>
-        <!-- including JAVA scources in JAR -->
+        <!-- Include JAVA sources in JAR
+		     Remove this resources part for production use, this is for development only
+             The production JAR should not have the JAVA sources: see http://stackoverflow.com/questions/25779900 -->
         <resources>
             <resource>
 				<!-- source directory -->

@@ -26,19 +26,40 @@ public class WeatherClaimProcessor extends AbstractClaimProcessor {
         log.debug("WeatherClaimProcessor onRequestStart called");
 
         if(claimStore.get(weatherTypeClaimUri) == null) {
-            claimStore.put(weatherTypeClaimUri, "Sunny");
-            log.debug(weatherTypeClaimUri.toString() + " set to Sunny");
-
-            Random generator = new Random();
-            int tempCelsius = generator.nextInt(10) + 20;
+            int tempCelsius = getRandomTempleratureInCelsius();
 
             claimStore.put(temperatureCelsiusClaimUri, tempCelsius);
             log.debug(temperatureCelsiusClaimUri.toString() + " set to " + tempCelsius);
 
-            float tempFahrenheitPrecise = ((float) tempCelsius * 180 / 100) + 32;
-            int tempFahrenheit = (int) Math.round(tempFahrenheitPrecise);
+            int tempFahrenheit = convertCelsiusToFahrenheit(tempCelsius);
             claimStore.put(temperatureFahrenheitClaimUri, tempFahrenheit);
             log.debug(temperatureFahrenheitClaimUri.toString() + " set to " + tempFahrenheit);
+
+            String weatherType = getWeatherType(tempCelsius);
+            claimStore.put(weatherTypeClaimUri, weatherType);
+            log.debug(weatherTypeClaimUri.toString() + " set to " + weatherType);
         }
+    }
+
+    @Override
+    public void onRequestEnd(ClaimStore claimStore) throws AmbientDataException {
+        log.debug("WeatherClaimProcessor onRequestEnd called");
+    }
+
+    private int getRandomTempleratureInCelsius() {
+        Random generator = new Random();
+        return generator.nextInt(10) + 20;
+    }
+
+    private int convertCelsiusToFahrenheit(float tempCelsius) {
+        float tempFahrenheitPrecise = (tempCelsius * 180 / 100) + 32;
+        return (int) Math.round(tempFahrenheitPrecise);
+    }
+
+    private String getWeatherType(int tempCelsius) {
+        String weatherType = "Sunny";
+        if(tempCelsius < 25)
+            weatherType = "Partly Cloudy";
+        return weatherType;
     }
 }

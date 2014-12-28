@@ -3,8 +3,6 @@
     <!-- Model Information -->
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- todo order of artifact info-->
-
     <!-- Artifact Information -->
 	<groupId>example.tridion.adfsandbox</groupId>
     <artifactId>weather-cartridge</artifactId>
@@ -12,18 +10,15 @@
     <packaging>jar</packaging>
 	<name>Example Weather ADF Cartridge</name>
 	<description>A sunny example of a custom cartrdige for the SDL Tridion ADF Ambient Data Framework</description>
-	<!--todo<url>http://example</url>-->
-	
+
     <!-- Properties -->
 	<properties>
 		<!-- do we need this?-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	    <!-- todo need this?         <projectGroupId>example.tridion.adf-sandbox</projectGroupId> -->
 
 		<!-- Tridion 2013 SP1 = TCD-build-version 7.1.0 -->
 		<tridion-version>7.1.0</tridion-version>
 
-		<!-- todo what version to use? can we use a LATEST-STABLE?-->
 		<!-- Jetty -->
 		<jetty-version>9.1.4.v20140401</jetty-version>
     </properties>
@@ -34,7 +29,6 @@
 		     Note: This is a selection from the JARs in the Tridion Content
 			       Delivery API. Only those JARs strictly needed for ADF and
 				   logging (slf4j and logback) are added. -->
-		<!-- todo should those JARs be "provided"? -->
         <dependency>
             <groupId>com.tridion</groupId>
             <artifactId>cd_ambient</artifactId>
@@ -62,14 +56,10 @@
         </dependency>
     </dependencies>
 
-    <!-- todo have compiler version in pom?
-    http://stackoverflow.com/questions/16723533/modify-pom-xml-to-include-jdk-compiler-version# -->
-
     <!-- Build -->
     <build>
         <plugins>
 			<!-- Jetty plugin for testing -->
-			<!-- todo hoe noem je dit? Jetty web application server ofzo? -->
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>

@@ -1,12 +1,4 @@
 Copy the  JARs from the Tridion 2013 SP1 installation media into this directory.
 
-cd_tcdl.jar
-cd_wai.jar
 cd_ambient.jar
-cd_broker.jar
-cd_cache.jar
 cd_core.jar
-cd_datalayer.jar
-cd_dynamic.jar
-cd_linking.jar
-cd_model.jar
